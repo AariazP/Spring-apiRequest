@@ -37,7 +37,7 @@ public class BookController {
 
     @PostMapping("/api/books")
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
-
+        System.out.println(" Llega una petición ");
         if(book.getId() != null){
             log.warn("Trying to create a book with an id");
             return ResponseEntity.badRequest().build();
@@ -71,6 +71,13 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
         bookRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @DeleteMapping("/api/books/")
+    public ResponseEntity<Void> deleteAll() {
+        bookRepository.deleteAll();
         return ResponseEntity.noContent().build();
     }
 
