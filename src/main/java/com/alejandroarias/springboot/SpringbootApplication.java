@@ -32,7 +32,7 @@ public class SpringbootApplication {
 
         System.out.println(" -----------------------Eliminar -------------------");
         System.out.println(" Elimino un libro con el id "+book1.getId() );
-        bookRepository.deleteById(book1.getId());
+       // bookRepository.deleteById(book1.getId());
 
         System.out.println("El total de libros: "+bookRepository.findAll().size());
     }
